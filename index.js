@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const PORT = 3000;
 
 // Apna khud ka strong key (hard to guess)
 const MY_SECRET_KEY = "Ak@sh!2026_X9z#LqT7vB$gW*PqR";
@@ -20,6 +19,8 @@ app.get("/api/secure", (req, res) => {
   }
 });
 
+// Railway ke liye PORT env variable use karo
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server chal raha hai http://localhost:${PORT}`);
+  console.log(`Server chal raha hai on port ${PORT}`);
 });
